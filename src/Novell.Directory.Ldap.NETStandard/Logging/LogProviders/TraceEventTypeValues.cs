@@ -4,7 +4,6 @@ namespace Novell.Directory.Ldap.Logging.LogProviders
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
 
 #if LIBLOG_EXCLUDE_CODE_COVERAGE
     [ExcludeFromCodeCoverage]
@@ -21,7 +20,7 @@ namespace Novell.Directory.Ldap.Logging.LogProviders
         [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
         static TraceEventTypeValues()
         {
-            var assembly = typeof(Uri).GetTypeInfo().Assembly;
+            var assembly = typeof(Uri).Assembly;
             Type = assembly.GetType("System.Diagnostics.TraceEventType");
             if (Type == null) return;
             Verbose = (int) Enum.Parse(Type, "Verbose", false);

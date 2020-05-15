@@ -7,7 +7,6 @@ namespace Novell.Directory.Ldap.Logging.LogProviders
 	using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Linq.Expressions;
-    using System.Reflection;
 
 #if LIBLOG_EXCLUDE_CODE_COVERAGE
     [ExcludeFromCodeCoverage]
@@ -302,7 +301,7 @@ namespace Novell.Directory.Ldap.Logging.LogProviders
 
                         var callsiteLoggerType = typeof(NLogLogger);
                         // Callsite HACK - Extract the callsite-logger-type from the messageFunc
-                        var methodType = messageFunc.GetMethodInfo().DeclaringType;
+                        var methodType = messageFunc.Method.DeclaringType;
                         if (methodType == typeof(LogExtensions) ||
                             methodType != null && methodType.DeclaringType == typeof(LogExtensions))
                             callsiteLoggerType = typeof(LogExtensions);
