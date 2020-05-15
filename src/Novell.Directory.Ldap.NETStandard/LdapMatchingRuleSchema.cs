@@ -32,6 +32,7 @@
 
 using System.IO;
 using System.Text;
+using Microsoft.Extensions.Logging;
 using Novell.Directory.Ldap.Utilclass;
 
 namespace Novell.Directory.Ldap
@@ -132,7 +133,7 @@ namespace Novell.Directory.Ldap
                 }
                 else
                 {
-                    Logger.Warn($"Can not parse matching rule schema {rawMatchingRule}");
+                    Logger.Log.LogInformation($"Can not parse matching rule schema {rawMatchingRule}");
                 }
             }
             catch (IOException ex)
