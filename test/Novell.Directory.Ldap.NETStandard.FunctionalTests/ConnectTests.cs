@@ -57,7 +57,7 @@ namespace Novell.Directory.Ldap.NETStandard.FunctionalTests
                 }, false, true);
         }
 
-        [Fact(Skip = "This randomly fails")]
+        [Fact]
         public void Connect_WithBindAfterStartTlsAndRestoreNonTls_Works()
         {
             TestHelper.WithLdapConnection(
