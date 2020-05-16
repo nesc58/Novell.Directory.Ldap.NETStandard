@@ -1,0 +1,1 @@
+docker run -h ldap-01.example.com -p 4389:389 -p 4636:636 -p 4480:80 --name openldap --env-file openldap-docker-env.props tiredofit/openldap
