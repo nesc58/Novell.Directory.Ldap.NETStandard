@@ -31,7 +31,7 @@ namespace Novell.Directory.Ldap
 
         private static void Init()
         {
-            Log = _loggerFactory.CreateLogger("Ldap");
+            Log = _loggerFactory.CreateLogger(typeof(Logger).Namespace);
         }
     }
 }
