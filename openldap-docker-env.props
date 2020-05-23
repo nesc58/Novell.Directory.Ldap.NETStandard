@@ -1,0 +1,4 @@
+DOMAIN=example.com
+BASE_DN=dc=example,dc=com
+ADMIN_PASS=password
+CONFIG_PASS=password

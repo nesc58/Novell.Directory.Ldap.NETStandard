@@ -19,6 +19,10 @@ slapd -f test/conf/slapd.conf -h "ldap://localhost:4389 ldaps://localhost:4636" 
 # give openldap enough time to start
 sleep 5
 # test to see that is running
-ldapwhoami -H ldap://localhost:4389 -D "cn=root,dc=example,dc=com" -w password 
+
+ldapwhoami -H ldap://localhost:4389 -D "cn=admin,dc=example,dc=com" -w password 
+ldapadd -h localhost:4389 -D cn=admin,dc=example,dc=com -w password -f test/conf/back.ldif
+ldapadd -h localhost:4389 -D cn=admin,dc=example,dc=com -w password -f test/conf/sssvlv_load.ldif
+ldapadd -h localhost:4389 -D cn=admin,dc=example,dc=com -w password -f test/conf/sssvlv_config.ldif
 ldapadd -h localhost:4389 -D cn=admin,dc=example,dc=com -w password -f test/conf/baseDn.ldif
-ldapmodify -h localhost:4389 -D cn=root,dc=example,dc=com -w password -f test/conf/testPerson.ldif
+# ldapmodify -h localhost:4389 -D cn=root,dc=example,dc=com -w password -f test/conf/testPerson.ldif

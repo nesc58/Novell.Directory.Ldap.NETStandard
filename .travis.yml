@@ -30,8 +30,8 @@ addons:
     - slapd
 
 before_script:
-  - chmod ugo+x configure-opendj.sh
-  - ./configure-opendj.sh
+  - chmod ugo+x configure-openldap.sh
+  - ./configure-openldap.sh
 
 jobs:
   include:
